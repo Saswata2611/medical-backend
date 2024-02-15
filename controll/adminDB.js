@@ -120,10 +120,42 @@ const queryform = async(req, res)=> {
             username:req.query.username,
             phone_no:req.query.phone_no,
             email:req.query.email,
+            querytype:req.query.type,
             message:req.query.message,
+            neededskills:req.query.needed_skills,
+            vision:req.query.vision,
+            goals:req.query.goals,
+            future:req.query.future,
+        };
+        if(querryData.querytype == 'public query'){
+          const querryData = {
+            username:req.query.username,
+            phone_no:req.query.phone_no,
+            email:req.query.email,
+            querytype:req.query.type,
+            message:req.query.message,
+            neededskills:null,
+            vision:null,
+            goals:null,
+            future:null,
         };
         await querryDB.doc(querryData.username).set(querryData);
         res.status(200).json('ok');
+      }else if(querryData.querytype == 'career query'){
+        const querryData = {
+          username:req.query.username,
+          phone_no:req.query.phone_no,
+          email:req.query.email,
+          querytype:req.query.type,
+          message:null,
+          neededskills:req.query.needed_skills,
+          vision:req.query.vision,
+          goals:req.query.goals,
+          future:req.query.future,
+      };
+      await querryDB.doc(querryData.username).set(querryData);
+      res.status(200).json('ok');
+      }
     } catch (error) {
         console.log(error)
     }
