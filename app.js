@@ -39,6 +39,7 @@ app.get('/searchall', readAllProduct);
 app.post('/querry',queryform);
 app.get('/getallquerry',getQuerries);
 
+
 const start = async()=> {
     try {
         app.listen(PORT, ()=>{

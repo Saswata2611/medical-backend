@@ -175,4 +175,5 @@ const getQuerries = async(req,res)=>{
     }
 }
 
+
 module.exports = {UserRegisterToAdmin, UserLoginOfAdmin, addProduct, searchProductByID, readAllProduct, queryform, getQuerries};
