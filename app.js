@@ -39,6 +39,10 @@ app.get('/searchall', readAllProduct);
 app.post('/querry',queryform);
 app.get('/getallquerry',getQuerries);
 
+const keepalive = async()=> {
+    await fetch('https://medical-website-backend.onrender.com/searchall');
+  }
+  setInterval(keepalive,1800000);
 
 const start = async()=> {
     try {
